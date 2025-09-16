@@ -79,9 +79,6 @@
         .category-nav {
             background: var(--background-color);
             padding: 16px 16px 0;
-            position: sticky;
-            top: 115px; /* 헤더 높이에 맞게 조정 */
-            z-index: 990;
             border-bottom: 1px solid var(--border-color);
         }
         
@@ -320,9 +317,6 @@
             }
             .header h1 {
                 font-size: 22px;
-            }
-            .category-nav {
-                top: 102px;
             }
             .category-title {
                 font-size: 20px;
@@ -996,10 +990,11 @@
                 
                 const targetElement = document.getElementById('category-' + categoryId);
                 if (targetElement) {
-                     const offset = 180; // 고정된 헤더와 네비게이션 높이를 고려한 오프셋
-                     const bodyRect = document.body.getBoundingClientRect().top;
-                     const elementRect = targetElement.getBoundingClientRect().top;
-                     const elementPosition = elementRect - bodyRect;
+                     const headerEl = document.querySelector('.header');
+                     const headerHeight = headerEl ? headerEl.offsetHeight : 0;
+                     const offset = headerHeight + 20; // 헤더 높이와 약간의 여백
+
+                     const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                      const offsetPosition = elementPosition - offset;
 
                      window.scrollTo({
