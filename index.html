@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2025년 9월 16일 뉴스 클리핑</title>
     <style>
+        /* Google Noto Sans KR 폰트 임포트 */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
 
+        /* 색상 변수 정의 */
         :root {
             --primary-color: #5a67d8;
             --background-color: #f7f9fc;
             --card-background-color: #ffffff;
-            --text-color: #333333;
-            --subtle-text-color: #6c757d;
+            --text-color: #2d3748;
+            --subtle-text-color: #718096;
             --border-color: #e2e8f0;
             --shadow-color: rgba(0, 0, 0, 0.05);
             --danger-color: #e53e3e;
@@ -30,7 +32,7 @@
         
         body {
             font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-color);
             background-color: var(--background-color);
             font-size: 16px;
@@ -38,11 +40,12 @@
         
         .container {
             max-width: 100%;
-            margin: 0;
+            margin: 0 auto;
             background-color: var(--background-color);
             min-height: 100vh;
         }
         
+        /* 헤더 스타일 */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -51,6 +54,7 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 12px var(--shadow-color);
+            text-align: center;
         }
         
         .header h1 {
@@ -62,44 +66,21 @@
         .header .subtitle {
             font-size: 15px;
             opacity: 0.9;
+            margin-bottom: 12px;
+        }
+
+        .header-summary {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.8;
         }
         
-        .stats-summary {
-            background-color: var(--card-background-color);
-            padding: 16px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            font-size: 15px;
-            border-bottom: 1px solid var(--border-color);
-            margin: 0 16px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px var(--shadow-color);
-            position: relative;
-            top: -20px;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--primary-color);
-            display: block;
-        }
-        
-        .stat-label {
-            font-size: 13px;
-            color: var(--subtle-text-color);
-        }
-        
+        /* 카테고리 네비게이션 */
         .category-nav {
             background: var(--background-color);
-            padding: 16px;
+            padding: 16px 16px 0;
             position: sticky;
-            top: 95px;
+            top: 115px; /* 헤더 높이에 맞게 조정 */
             z-index: 990;
             border-bottom: 1px solid var(--border-color);
         }
@@ -108,12 +89,12 @@
             display: flex;
             gap: 12px;
             overflow-x: auto;
-            padding-bottom: 10px;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+            padding-bottom: 16px;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
         }
         .category-tabs::-webkit-scrollbar {
-            display: none;
+            display: none; /* Chrome, Safari, Opera */
         }
         
         .category-tab {
@@ -127,6 +108,7 @@
             font-size: 15px;
             font-weight: 500;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         
         .category-tab.active {
@@ -136,8 +118,9 @@
             box-shadow: 0 2px 6px rgba(90, 103, 216, 0.3);
         }
         
+        /* 메인 콘텐츠 영역 */
         .main-content {
-            padding: 0 16px 16px;
+            padding: 16px;
         }
         
         .category-section {
@@ -155,9 +138,9 @@
         }
         
         .category-title {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
-            color: #2d3748;
+            color: var(--text-color);
         }
         
         .toggle-icon {
@@ -179,22 +162,24 @@
             max-height: 5000px; /* 충분히 큰 값으로 설정 */
         }
         
+        /* 뉴스 카드 디자인 */
         .news-card {
             background-color: var(--card-background-color);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            margin-bottom: 16px;
+            margin-top: 16px;
             overflow: hidden;
             box-shadow: 0 4px 12px var(--shadow-color);
-            transition: box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
 
         .news-card:hover {
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
         
         .news-header {
-            padding: 16px;
+            padding: 20px;
             border-left: 5px solid var(--border-color);
             cursor: pointer;
         }
@@ -202,7 +187,7 @@
         .news-title {
             font-size: 18px;
             font-weight: 700;
-            color: #2d3748;
+            color: var(--text-color);
             margin-bottom: 12px;
             line-height: 1.5;
         }
@@ -220,7 +205,7 @@
             font-size: 12px;
             font-weight: 500;
             color: white;
-            display: flex;
+            display: inline-flex;
             align-items: center;
         }
         
@@ -230,6 +215,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: 12px;
         }
         
         .expand-icon {
@@ -246,6 +232,7 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.4s ease-in-out;
+            background-color: #fafbff;
         }
         
         .news-details.expanded {
@@ -253,24 +240,17 @@
         }
         
         .news-content {
-            padding: 0 16px 16px;
+            padding: 0 20px 20px;
+            border-top: 1px solid var(--border-color);
         }
         
-        .news-summary, .news-reasoning {
+        .news-summary {
             padding: 16px;
             border-radius: 8px;
             margin: 16px 0;
             font-size: 15px;
             line-height: 1.7;
-        }
-        
-        .news-summary {
-            background-color: #f8f9fa;
-        }
-
-        .news-reasoning {
-            background-color: #e8f4f8;
-            border-left: 4px solid var(--info-color);
+            background-color: #f1f3f9;
         }
 
         strong {
@@ -279,7 +259,7 @@
 
         .news-meta-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 16px;
             margin: 16px 0;
             font-size: 14px;
@@ -298,8 +278,8 @@
         }
         
         .meta-value {
-            color: #4a5568;
-            font-weight: 700;
+            color: var(--text-color);
+            font-weight: 600;
         }
         
         .news-link {
@@ -333,7 +313,7 @@
             animation: fadeIn 0.5s ease-out forwards;
         }
 
-        /* 미디어 쿼리 추가 */
+        /* 모바일 화면 대응 */
         @media (max-width: 768px) {
             .header {
                 padding: 20px 16px;
@@ -341,12 +321,11 @@
             .header h1 {
                 font-size: 22px;
             }
-            .stats-summary {
-                margin: 0 10px;
-                top: -15px;
-            }
             .category-nav {
-                top: 85px;
+                top: 102px;
+            }
+            .category-title {
+                font-size: 20px;
             }
         }
     </style>
@@ -356,33 +335,16 @@
         <header class="header">
             <h1>📰 오늘의 뉴스 클리핑</h1>
             <div class="subtitle">2025년 9월 16일 • AI가 분석한 핵심 뉴스</div>
+            <div class="header-summary">총 20개 뉴스 • 4개 분야</div>
         </header>
-        
-        <div class="stats-summary">
-            <div class="stat-item">
-                <span class="stat-number">20</span>
-                <span class="stat-label">총 뉴스</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">4</span>
-                <span class="stat-label">분야</span>
-            </div>
-        </div>
         
         <nav class="category-nav">
             <div class="category-tabs">
-                <a href="#category-Pharma_Bio" class="category-tab active" onclick="showCategory('Pharma_Bio', this)">
-                    💊 제약/바이오
-                </a>
-                <a href="#category-Food_Retail" class="category-tab" onclick="showCategory('Food_Retail', this)">
-                    🍽️ 식품/유통
-                </a>
-                <a href="#category-Economy_General" class="category-tab" onclick="showCategory('Economy_General', this)">
-                    📊 경제일반
-                </a>
-                <a href="#category-Uncategorized" class="category-tab" onclick="showCategory('Uncategorized', this)">
-                    📰 기타
-                </a>
+                <a class="category-tab active" onclick="showCategory(event, 'all', this)">🌐 전체</a>
+                <a class="category-tab" onclick="showCategory(event, 'Pharma_Bio', this)">💊 제약/바이오</a>
+                <a class="category-tab" onclick="showCategory(event, 'Food_Retail', this)">🍽️ 식품/유통</a>
+                <a class="category-tab" onclick="showCategory(event, 'Economy_General', this)">📊 경제일반</a>
+                <a class="category-tab" onclick="showCategory(event, 'Uncategorized', this)">📰 기타</a>
             </div>
         </nav>
         
@@ -392,13 +354,13 @@
                     <h2 class="category-title">💊 제약/바이오</h2>
                     <span class="toggle-icon">🔽</span>
                 </div>
-                <div class="category-content expanded" id="content-Pharma_Bio">
+                <div class="category-content" id="content-Pharma_Bio">
                     <article class="news-card">
                         <div class="news-header" onclick="toggleNews('news-Pharma_Bio-0')" style="border-left-color: var(--danger-color)">
                             <h3 class="news-title">미국 로스앤젤레스서 홍역 합병증으로 아동 사망…전문가들 "예방접종 ..."</h3>
                             <div class="news-badges">
-                                <span class="badge" style="background-color: var(--danger-color)">🔴 긴급</span>
-                                <span class="badge" style="background-color: var(--danger-color)">📉 부정적</span>
+                                <span class="badge" style="background: var(--danger-color);">🔴 긴급</span>
+                                <span class="badge" style="background: var(--danger-color);">📉 부정적</span>
                             </div>
                             <div class="news-meta-brief">
                                 <span>중요도: ★★★★★</span>
@@ -411,12 +373,7 @@
                                     <strong>📝 요약</strong><br>
                                     미국 로스앤젤레스에서 홍역 합병증으로 어린이가 사망하는 사건이 발생했습니다. 전문가들은 예방접종의 중요성을 강조했으며, 홍역 백신이 수백만 명의 생명을 구한 것으로 평가받고 있습니다.
                                 </div>
-                                <div class="news-reasoning">
-                                    <strong>🎯 선별 이유</strong><br>
-                                    치명적인 질병 발생 및 예방접종 중요성 강조는 공중 보건에 큰 영향을 미칩니다.
-                                </div>
                                 <div class="news-meta-grid">
-                                    <div class="meta-item"><span class="meta-label">회사 영향도</span><span class="meta-value">낮음</span></div>
                                     <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★☆</span></div>
                                     <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">백신</span></div>
                                     <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
@@ -429,8 +386,8 @@
                         <div class="news-header" onclick="toggleNews('news-Pharma_Bio-1')" style="border-left-color: var(--warning-color)">
                             <h3 class="news-title">“아미반타맙·레이저티닙 병용요법, EGFR 돌연변이 폐암 환자 사망위험...</h3>
                             <div class="news-badges">
-                                <span class="badge" style="background-color: var(--warning-color)">🟡 주의</span>
-                                <span class="badge" style="background-color: var(--positive-color)">📈 긍정적</span>
+                                <span class="badge" style="background: var(--warning-color)">🟡 주의</span>
+                                <span class="badge" style="background: var(--positive-color)">📈 긍정적</span>
                             </div>
                             <div class="news-meta-brief">
                                 <span>중요도: ★★★★★</span>
@@ -443,12 +400,7 @@
                                     <strong>📝 요약</strong><br>
                                     EGFR 돌연변이 폐암 환자를 대상으로 한 아미반타맙·레이저티닙 병용요법 연구 결과가 발표되었습니다. 이 병용요법은 기존 치료제 대비 환자의 사망 위험을 낮추고 3년 생존율을 유의미하게 높였습니다. 이는 폐암 치료의 새로운 표준 제시 가능성을 시사합니다.
                                 </div>
-                                <div class="news-reasoning">
-                                    <strong>🎯 선별 이유</strong><br>
-                                    폐암 치료의 새로운 표준 제시 가능성, 환자 생존율에 직결
-                                </div>
                                 <div class="news-meta-grid">
-                                    <div class="meta-item"><span class="meta-label">회사 영향도</span><span class="meta-value">높음</span></div>
                                     <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
                                     <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">FDA</span></div>
                                     <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
@@ -457,12 +409,528 @@
                             </div>
                         </div>
                     </article>
-                    </div>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Pharma_Bio-2')" style="border-left-color: var(--warning-color)">
+                            <h3 class="news-title">아리바이오, 경구용 알츠하이머약 中 독점판매권 계약금 수령…누적 2.</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--warning-color)">🟡 주의</span>
+                                <span class="badge" style="background: var(--positive-color)">📈 긍정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Pharma_Bio-2">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    알츠하이머약 AR1001, 중국 푸싱제약과 독점판매권 계약금 수령.
+                                    글로벌 임상 3상 순조롭게 진행 중, 내년 상반기 종료 예정.
+                                    신약 개발 및 사업화 가능성 보여주는 중요한 성과.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">임상3상</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="http://www.hansbiz.co.kr/news/articleView.html?idxno=776720" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Pharma_Bio-3')" style="border-left-color: var(--warning-color)">
+                            <h3 class="news-title">대웅제약, 보툴리눔 톡신 '나보타' 이번엔 중국 허들 넘을까</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--warning-color)">🟡 주의</span>
+                                <span class="badge" style="background: var(--neutral-color)">➖ 중립적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★☆</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Pharma_Bio-3">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    대웅제약이 보툴리눔 톡신 '나보타'의 중국 시장 진출을 위해 다시 도전합니다. 지난 15일 중국 국가약품감독관리국(NMPA)에 품목 허가를 신청했으며, 이번 진출 성공 여부가 대웅제약의 글로벌 사업 확장에 중요한 영향을 미칠 것으로 보입니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">대웅제약, 나보타, 중국, 품목허가</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://biz.newdaily.co.kr/site/data/html/2025/09/16/2025091600071.html" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Pharma_Bio-4')" style="border-left-color: var(--warning-color)">
+                            <h3 class="news-title">대웅제약, 2개월 만에 톡신 中 허가 재도전</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--warning-color)">🟡 주의</span>
+                                <span class="badge" style="background: var(--neutral-color)">➖ 중립적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★☆</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Pharma_Bio-4">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    대웅제약이 약 2개월 만에 중국 NMPA에 보툴리눔 톡신 '나보타' 100유닛 품목 허가를 재신청했습니다. 이번 신청은 20~65세 성인을 대상으로 눈썹주름근 및 눈살근 활동에 대한 것이며, 중국 시장에서의 성공 여부가 향후 대웅제약의 실적에 큰 영향을 줄 것으로 예상됩니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">약품</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://n.news.naver.com/mnews/article/031/0000965565?sid=101" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <section id="category-Food_Retail" class="category-section">
+                <div class="category-header" onclick="toggleCategory('Food_Retail')">
+                    <h2 class="category-title">🍽️ 식품/유통</h2>
+                    <span class="toggle-icon collapsed">🔽</span>
+                </div>
+                <div class="category-content" id="content-Food_Retail">
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Food_Retail-0')" style="border-left-color: var(--danger-color)">
+                            <h3 class="news-title">1kg에 160만원 ‘금값’…채취량 0 찍고 난리 난 한국 식재료 '이것'</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--danger-color)">🔴 긴급</span>
+                                <span class="badge" style="background: var(--danger-color)">📉 부정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Food_Retail-0">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    추석 명절을 앞두고 주요 식재료인 송이 버섯의 채취량이 전무하여 공판이 지연되는 등 농가와 유통업계에 비상이 걸렸습니다. 이는 1kg에 160만원에 달하는 송이 버섯의 가격 상승을 야기할 것으로 보이며, 명절 선물 준비에도 차질이 예상됩니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">유통업계, 송이버섯, 명절대목, 식재료</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://www.wikitree.co.kr/articles/1081374" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Food_Retail-1')" style="border-left-color: var(--warning-color)">
+                            <h3 class="news-title">아시아 ‘선 넘는’ K-푸드…美 관세 피해 유럽 공략 드라이브</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--warning-color)">🟡 주의</span>
+                                <span class="badge" style="background: var(--positive-color)">📈 긍정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Food_Retail-1">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    K-팝 인기에 힘입어 유럽 내 한식 인기가 상승하며, 미국 관세 부담을 피해 유럽 시장 공략에 집중하고 있으며 유럽 내 식품 유통망 확대가 이루어지고 있습니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">식품업계</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://www.dt.co.kr/article/12017712?ref=naver" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Food_Retail-2')" style="border-left-color: var(--info-color)">
+                            <h3 class="news-title">컴포즈커피, 3000호점 돌파…“2년 만에 1000개 매장 추가”</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--info-color)">🔵 일반</span>
+                                <span class="badge" style="background: var(--positive-color)">📈 긍정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Food_Retail-2">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    컴포즈커피가 전국 3000호점을 돌파했습니다. 이는 2년 만에 1000개의 매장을 추가한 괄목할 만한 성장이며, 컴포즈커피의 강력한 브랜드 경쟁력을 보여줍니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">커피</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://www.sedaily.com/NewsView/2GXXAHCE9D" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Food_Retail-3')" style="border-left-color: var(--info-color)">
+                            <h3 class="news-title">코스맥스그룹, 하반기 신입사원 공개 채용…29일까지 접수</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--info-color)">🔵 일반</span>
+                                <span class="badge" style="background: var(--neutral-color)">➖ 중립적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Food_Retail-3">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    코스맥스그룹이 2025년 하반기 신입사원 공개 채용을 진행하며, 화장품, 건강기능식품, 의약품 ODM 기업으로서 다양한 분야의 인재를 모집합니다. 지원 접수는 9월 29일 오후 4시까지입니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">건강기능식품</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://www.newsis.com/view/NISX20250916_0003330323" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Food_Retail-4')" style="border-left-color: var(--danger-color)">
+                            <h3 class="news-title">HDC현대산업개발, 강릉 가뭄 피해 복구지원 생수 10만 병 전달</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--danger-color)">🔴 긴급</span>
+                                <span class="badge" style="background: var(--positive-color)">📈 긍정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Food_Retail-4">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    HDC현대산업개발은 강릉 지역의 극심한 가뭄 피해 복구를 위해 생수 10만 병을 지원했다. 이는 강릉시자원봉사센터를 통해 지역 주민들에게 긴급하게 전달될 예정이며, 기업의 사회 공헌 활동으로 지역 사회에 도움을 주는 사례이다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★☆☆</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">생수</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="http://www.m-i.kr/news/articleView.html?idxno=1282467" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section id="category-Economy_General" class="category-section">
+                <div class="category-header" onclick="toggleCategory('Economy_General')">
+                    <h2 class="category-title">📊 경제일반</h2>
+                    <span class="toggle-icon collapsed">🔽</span>
+                </div>
+                <div class="category-content" id="content-Economy_General">
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Economy_General-0')" style="border-left-color: var(--danger-color)">
+                            <h3 class="news-title">국제금값, 美 연준 금리결정 앞두고 최고치 경신...0.9%↑</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--danger-color)">🔴 긴급</span>
+                                <span class="badge" style="background: var(--positive-color)">📈 긍정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Economy_General-0">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    미 연준의 금리 결정을 앞두고 국제 금값이 사상 최고치를 경신했습니다. 이는 연준이 금리 인하 사이클을 재개할 것이라는 기대감 때문으로 분석되며, 글로벌 경제 불확실성과도 연관이 있습니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">금리</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://www.newsway.co.kr/news/view?ud=2025091609440174339" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Economy_General-1')" style="border-left-color: var(--danger-color)">
+                            <h3 class="news-title">[속보]이 대통령 "청년 고용난 해결 위한 기업 노력 필요…힘 합쳐달라...</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--danger-color)">🔴 긴급</span>
+                                <span class="badge" style="background: var(--neutral-color)">➖ 중립적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Economy_General-1">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    이 대통령은 국가적 과제인 청년 고용난 해결을 위해 기업들의 적극적인 노력을 촉구하며 정부와 기업이 협력할 것을 주문했습니다. 이는 향후 고용 정책 방향에 중요한 시사점을 줄 수 있습니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">고용</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://n.news.naver.com/mnews/article/003/0013484040?sid=100" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Economy_General-2')" style="border-left-color: var(--warning-color)">
+                            <h3 class="news-title">[DIC 2025] ⑥ AI 시대, 인프라는 준비돼 있는가… 전력 대란 서막</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--warning-color)">🟡 주의</span>
+                                <span class="badge" style="background: var(--danger-color)">📉 부정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Economy_General-2">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    AI 기술 발전과 함께 전력 수요 급증이 예상됩니다. 이에 대한 기술적, 제도적 해결 방안을 논의하는 DIC 2025 컨퍼런스가 개최됩니다. 인프라 준비 현황을 점검하고 지속가능한 AI 시대를 위한 방안을 모색합니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">전경련</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://n.news.naver.com/mnews/article/138/0002204960?sid=004" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Economy_General-3')" style="border-left-color: var(--info-color)">
+                            <h3 class="news-title">코스피, 美 훈풍 타고 또 천장 뚫었다…5거래일 연속 사상 최고</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--info-color)">🔵 일반</span>
+                                <span class="badge" style="background: var(--positive-color)">📈 긍정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Economy_General-3">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    코스피 지수가 5거래일 연속 사상 최고치를 기록하며 상승세를 이어가고 있습니다. 이는 미국 증시의 훈풍과 외국인 투자자들의 적극적인 매수세에 영향을 받은 것으로 보입니다. 전반적인 시장의 긍정적인 분위기를 반영하며 경제 전망을 밝게 하고 있습니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">지수</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://www.digitaltoday.co.kr/news/articleView.html?idxno=592149" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Economy_General-4')" style="border-left-color: var(--danger-color)">
+                            <h3 class="news-title">구미시 태양광 '먹튀' 사기, 드러난 제도의 허점</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--danger-color)">🔴 긴급</span>
+                                <span class="badge" style="background: var(--danger-color)">📉 부정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Economy_General-4">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    구미시에서 태양광 '먹튀' 사기와 관련된 행정상의 허점이 발견되었습니다. 축산업 허가 시 필수 교육 이수 요건이 '확약서'로 대체되어 법규가 무시되었으며, 이는 부정부패 의혹으로 이어지고 있습니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★☆☆</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">이수</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://www.nbntv.kr/news/articleView.html?idxno=337649" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section id="category-Uncategorized" class="category-section">
+                <div class="category-header" onclick="toggleCategory('Uncategorized')">
+                    <h2 class="category-title">📰 기타</h2>
+                    <span class="toggle-icon collapsed">🔽</span>
+                </div>
+                <div class="category-content" id="content-Uncategorized">
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Uncategorized-0')" style="border-left-color: var(--danger-color)">
+                            <h3 class="news-title">美, 일본車관세 15%로 인하 확정… 한국은 협상 지연 속 불리한 국면</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--danger-color)">🔴 긴급</span>
+                                <span class="badge" style="background: var(--danger-color)">📉 부정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Uncategorized-0">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    미국이 일본산 자동차 관세를 15%로 인하했지만, 한국산 자동차 관세는 25%로 유지되어 한국 자동차 수출 기업들이 불리한 상황에 놓였습니다. 이는 협상 지연의 결과입니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">관세, 자동차 수출</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://www.fntoday.co.kr/news/articleView.html?idxno=363674" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Uncategorized-1')" style="border-left-color: var(--warning-color)">
+                            <h3 class="news-title">차바이오텍 미국 자회사, 나스닥 상장사와 CDMO 계약 체결</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--warning-color)">🟡 주의</span>
+                                <span class="badge" style="background: var(--positive-color)">📈 긍정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Uncategorized-1">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    차바이오텍 미국 자회사 마티카 바이오가 나스닥 상장사와 CDMO 계약을 체결했습니다.
+                                    이는 상업화 프로젝트에 대한 위탁 개발 및 생산을 포함합니다.
+                                    마티카 바이오의 기술력과 글로벌 경쟁력을 보여주는 성과입니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">자동분류</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://mdtoday.co.kr/news/view/1065573356571096" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Uncategorized-2')" style="border-left-color: var(--warning-color)">
+                            <h3 class="news-title">정부, 미래 먹거리 반도체 산업 위한 10조 원 규모 지원책 발표</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--warning-color)">🟡 주의</span>
+                                <span class="badge" style="background: var(--positive-color)">📈 긍정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Uncategorized-2">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    정부가 반도체 산업 육성을 위해 10조 원 규모 지원 발표. 관련 기업들의 투자 확대 및 기술 혁신 촉진 기대. 국가 경제 핵심 동력 강화 노력.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">반도체 산업 지원</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2023. 10. 26.</span></div>
+                                </div>
+                                <a href="[가상 링크 2]" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Uncategorized-3')" style="border-left-color: var(--warning-color)">
+                            <h3 class="news-title">美, 일본산 車 관세 인하… 한국 자동차 업계 '역차별' 우려</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--warning-color)">🟡 주의</span>
+                                <span class="badge" style="background: var(--danger-color)">📉 부정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Uncategorized-3">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    미국이 일본산 자동차 수입 관세를 15%로 인하함에 따라, 한국 자동차 업계는 가격 경쟁력 약화 및 '역차별'에 대한 우려를 표명하고 있습니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★★</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">자동차, 관세, 무역, 역차별</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://www.jeonmae.co.kr/news/articleView.html?idxno=1185391" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-header" onclick="toggleNews('news-Uncategorized-4')" style="border-left-color: var(--danger-color)">
+                            <h3 class="news-title">하나은행, 미 상호관세 피해 기업에 긴급 금융지원</h3>
+                            <div class="news-badges">
+                                <span class="badge" style="background: var(--danger-color)">🔴 긴급</span>
+                                <span class="badge" style="background: var(--positive-color)">📈 긍정적</span>
+                            </div>
+                            <div class="news-meta-brief">
+                                <span>중요도: ★★★★★</span>
+                                <span class="expand-icon">🔽</span>
+                            </div>
+                        </div>
+                        <div class="news-details" id="news-Uncategorized-4">
+                            <div class="news-content">
+                                <div class="news-summary">
+                                    <strong>📝 요약</strong><br>
+                                    하나은행이 미국 관세 부과 피해 기업에 긴급 금융지원에 나섭니다. 수출금융, 기업여신, 경영컨설팅 등 포괄적인 지원을 제공하며, 대외 경제 불확실성 속 위기 극복을 돕기 위함입니다.
+                                </div>
+                                <div class="news-meta-grid">
+                                    <div class="meta-item"><span class="meta-label">업계 관련성</span><span class="meta-value">★★★★☆</span></div>
+                                    <div class="meta-item"><span class="meta-label">키워드</span><span class="meta-value">금융지원</span></div>
+                                    <div class="meta-item"><span class="meta-label">발행일</span><span class="meta-value">2025. 9. 16.</span></div>
+                                </div>
+                                <a href="https://www.pointdaily.co.kr/news/articleView.html?idxno=269905" target="_blank" class="news-link">📖 기사 전문 보기</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </section>
         </main>
     </div>
     
     <script>
+        // 카테고리 섹션 토글 함수 (열고 닫기)
         function toggleCategory(categoryId) {
             const content = document.getElementById('content-' + categoryId);
             const icon = content.parentElement.querySelector('.toggle-icon');
@@ -476,6 +944,7 @@
             }
         }
         
+        // 뉴스 상세 내용 토글 함수
         function toggleNews(newsId) {
             const details = document.getElementById(newsId);
             const icon = details.parentElement.querySelector('.expand-icon');
@@ -489,35 +958,69 @@
             }
         }
         
-        function showCategory(categoryId, element) {
+        // 카테고리 탭 클릭 시 필터링 및 스크롤 함수
+        function showCategory(event, categoryId, element) {
+            event.preventDefault();
+            // 탭 활성화 상태 변경
             document.querySelectorAll('.category-tab').forEach(tab => tab.classList.remove('active'));
             element.classList.add('active');
             
-            const targetElement = document.getElementById('category-' + categoryId);
-            const offset = 110; // 헤더와 네비게이션 높이 고려
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            const allSections = document.querySelectorAll('.category-section');
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+            if (categoryId === 'all') {
+                // '전체' 탭: 모든 섹션 보이고 펼치기
+                allSections.forEach(section => {
+                    section.style.display = 'block';
+                    const content = section.querySelector('.category-content');
+                    const icon = section.querySelector('.toggle-icon');
+                    if (content && icon) {
+                        content.classList.add('expanded');
+                        icon.classList.remove('collapsed');
+                    }
+                });
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // '전체' 보기 시 최상단으로 스크롤
+            } else {
+                // 특정 카테고리 탭: 해당 섹션만 보이고 펼치기
+                allSections.forEach(section => {
+                    const isTarget = section.id === 'category-' + categoryId;
+                    section.style.display = isTarget ? 'block' : 'none';
+                     if (isTarget) {
+                        const content = section.querySelector('.category-content');
+                        const icon = section.querySelector('.toggle-icon');
+                        if (content && icon) {
+                            content.classList.add('expanded');
+                            icon.classList.remove('collapsed');
+                        }
+                    }
+                });
+                
+                const targetElement = document.getElementById('category-' + categoryId);
+                if (targetElement) {
+                     const offset = 180; // 고정된 헤더와 네비게이션 높이를 고려한 오프셋
+                     const bodyRect = document.body.getBoundingClientRect().top;
+                     const elementRect = targetElement.getBoundingClientRect().top;
+                     const elementPosition = elementRect - bodyRect;
+                     const offsetPosition = elementPosition - offset;
+
+                     window.scrollTo({
+                         top: offsetPosition,
+                         behavior: 'smooth'
+                     });
+                }
+            }
         }
         
+        // 페이지 로드 시 초기 설정: '전체' 탭이 활성화된 상태이므로 모든 카테고리를 펼침
         document.addEventListener('DOMContentLoaded', function() {
             const categories = document.querySelectorAll('.category-section');
-            categories.forEach((category, index) => {
+            categories.forEach((category) => {
                 const content = category.querySelector('.category-content');
                 const icon = category.querySelector('.toggle-icon');
-                if (index === 0) {
-                    content.classList.add('expanded');
-                    icon.classList.remove('collapsed');
-                } else {
-                    content.classList.remove('expanded');
-                    icon.classList.add('collapsed');
-                }
+                content.classList.add('expanded');
+                if(icon) icon.classList.remove('collapsed');
             });
         });
     </script>
 </body>
 </html>
+
